@@ -2,7 +2,10 @@ const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
 
-const PORT = process.env.PORT || 8800;
+let PORT = process.env.PORT;
+if (PORT == null || PORT == "") {
+  PORT = 8000;
+}
 
 http.listen(PORT, () => {
   console.log(`Listing at port ${PORT}`);
